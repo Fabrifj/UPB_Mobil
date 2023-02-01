@@ -23,7 +23,7 @@ class Routes {
 
   static final Handler _homeHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>>s) =>
-          HomePage());
+          const HomePage(title: 'Flutter Demo Home Page'));
 
   static final Handler _loginPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
