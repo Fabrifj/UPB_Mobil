@@ -17,13 +17,13 @@ class Routes {
     router.define('/registration', handler: _registrationPage);
     router.define('/events', handler: _eventsPage);
     router.define('/networking', handler: _networkingPage);
-    router.define('/persona_page', handler: _personalInfoPage);
+    router.define('/persona-page', handler: _personalInfoPage);
     router.define('/about-us', handler: _aboutUsPage);
   }
 
   static final Handler _homeHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>>s) =>
-          const HomePage(title: 'Flutter Demo Home Page'));
+          const HomePage(title: 'Home'));
 
   static final Handler _loginPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
@@ -35,17 +35,17 @@ class Routes {
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          EventsPage());
+          EventsPage(title:'Events'));
 
   static final Handler _networkingPage = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params)
-      => NetworkingPage());
+      => NetworkingPage('Networking'));
 
   static final Handler _personalInfoPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          PersonalInfoPage());
+          PersonalInfoPage('Personal'));
 
   static final Handler _aboutUsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          AboutUsPage());
+          AboutUsPage('AboutUs'));
 
 }
