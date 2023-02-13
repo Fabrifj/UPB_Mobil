@@ -11,8 +11,6 @@ import 'package:upb_mobil/pages/personal_info/personal_info_page.dart';
 import '../pages/networking/networking_person_page.dart';
 import '../pages/networking/networking_search_page.dart';
 
-
-
 class Routes {
   static void defineRoutes(FluroRouter router) {
     router.define("/", handler: _homeHandler);
@@ -27,7 +25,7 @@ class Routes {
   }
 
   static final Handler _homeHandler = Handler(
-      handlerFunc: (BuildContext? context, Map<String, List<String>>s) =>
+      handlerFunc: (BuildContext? context, Map<String, List<String>> s) =>
           const HomePage(title: 'Home'));
 
   static final Handler _loginPage = Handler(
@@ -40,14 +38,15 @@ class Routes {
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          EventsPage(title:'Events'));
+          EventsPage(title: 'Events'));
 
-  static final Handler _networkingCatPage = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params)
-      => NetworkingCategoriesPage('Networking'));
+  static final Handler _networkingCatPage = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
+          NetworkingCategoriesPage('Networking'));
 
   static final Handler _networkingSerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
-          NetworkingSearchPage('Networking',params["id"][0]));
+          NetworkingSearchPage('Networking', params["id"][0]));
 
   static final Handler _networkingPerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
@@ -60,5 +59,4 @@ class Routes {
   static final Handler _aboutUsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           AboutUsPage('AboutUs'));
-
 }
