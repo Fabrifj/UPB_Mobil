@@ -25,7 +25,7 @@ class EventsPage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Application.router.navigateTo(context, "about-us",
+                Application.router.navigateTo(context, "content-management",
                     transition: TransitionType.inFromRight);
               },
               child: Text("Agregar Evento"),
