@@ -10,8 +10,7 @@ import 'package:upb_mobil/pages/networking/networking_categories_page.dart';
 import 'package:upb_mobil/pages/personal_info/personal_info_page.dart';
 import '../pages/networking/networking_person_page.dart';
 import '../pages/networking/networking_search_page.dart';
-
-
+import 'package:upb_mobil/pages/management/management_content.dart';
 
 class Routes {
   static void defineRoutes(FluroRouter router) {
@@ -24,10 +23,11 @@ class Routes {
     router.define('/networking/person/:id', handler: _networkingPerPage);
     router.define('/persona-page', handler: _personalInfoPage);
     router.define('/about-us', handler: _aboutUsPage);
+    router.define('/content-management', handler: _contentManagementPage);
   }
 
   static final Handler _homeHandler = Handler(
-      handlerFunc: (BuildContext? context, Map<String, List<String>>s) =>
+      handlerFunc: (BuildContext? context, Map<String, List<String>> s) =>
           const HomePage(title: 'Home'));
 
   static final Handler _loginPage = Handler(
@@ -40,14 +40,15 @@ class Routes {
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          EventsPage(title:'Events'));
+          EventsPage(title: 'Events'));
 
-  static final Handler _networkingCatPage = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params)
-      => NetworkingCategoriesPage('Networking'));
+  static final Handler _networkingCatPage = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
+          NetworkingCategoriesPage('Networking'));
 
   static final Handler _networkingSerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
-          NetworkingSearchPage('Networking',params["id"][0]));
+          NetworkingSearchPage('Networking', params["id"][0]));
 
   static final Handler _networkingPerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
@@ -61,4 +62,7 @@ class Routes {
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           AboutUsPage('AboutUs'));
 
+  static final Handler _contentManagementPage = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
+          ManagementContent(title: 'ContentManagement'));
 }

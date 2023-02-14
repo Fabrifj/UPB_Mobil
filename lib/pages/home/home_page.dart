@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
         child: Center(
           child: Text("Home"),
         ),
-      ),);
+      ),
+    );
   }
 }
