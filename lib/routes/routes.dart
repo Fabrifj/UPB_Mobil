@@ -10,6 +10,7 @@ import 'package:upb_mobil/pages/networking/networking_categories_page.dart';
 import 'package:upb_mobil/pages/personal_info/personal_info_page.dart';
 import '../pages/networking/networking_person_page.dart';
 import '../pages/networking/networking_search_page.dart';
+import 'package:upb_mobil/pages/management/management_content.dart';
 
 class Routes {
   static void defineRoutes(FluroRouter router) {
@@ -22,6 +23,7 @@ class Routes {
     router.define('/networking/person/:id', handler: _networkingPerPage);
     router.define('/persona-page', handler: _personalInfoPage);
     router.define('/about-us', handler: _aboutUsPage);
+    router.define('/content-management', handler: _contentManagementPage);
   }
 
   static final Handler _homeHandler = Handler(
@@ -59,4 +61,8 @@ class Routes {
   static final Handler _aboutUsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           AboutUsPage('AboutUs'));
+
+  static final Handler _contentManagementPage = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
+          ManagementContent(title: 'ContentManagement'));
 }

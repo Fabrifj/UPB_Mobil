@@ -12,5 +12,6 @@ class FirebaseFunctions {
     //
   }
 
-  Future<void> pushByCollection(String dataToPush) async {}
+  Future<void> pushByCollection(
+      String collectionName, String dataToPush) async {}
 }
