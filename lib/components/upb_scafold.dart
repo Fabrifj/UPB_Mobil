@@ -1,15 +1,15 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
-import '../routes/aplication.dart';
+import 'package:upb_mobil/routes/aplication.dart';
 
 class UpbScaffold extends StatelessWidget {
   final Widget body;
   final String title;
 
-  UpbScaffold({Key? key, required this.body, required this.title}) : super(key: key);
+  UpbScaffold({Key? key, required this.body, required this.title})
+      : super(key: key);
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
 
   final Container background = Container(
     child: Image.asset(
@@ -29,8 +29,8 @@ class UpbScaffold extends StatelessWidget {
           title: Text(title),
           backgroundColor: Colors.blue,
           leading: GestureDetector(
-            onTap:  () {
-                Application.router.navigateTo(context,"persona-page" );
+            onTap: () {
+              Application.router.navigateTo(context, "persona-page");
             },
             child: Container(
               margin: EdgeInsets.all(4),
@@ -86,43 +86,39 @@ class UpbScaffold extends StatelessWidget {
           ),
         ),
         body: Stack(
-          children: [ body],
+          children: [body],
         ),
         bottomNavigationBar: Container(
-          padding: const EdgeInsets.only(right: 12, left: 12),
-          color: Colors.grey[300],
-          height: 48,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Expanded(
-                child: IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: (){
-                       Application.router.navigateTo(context,"events" , transition: TransitionType.inFromLeft );
-                    }
-                  )
-                ),
-              SizedBox(width: 30),
-              Expanded(
-                  child: IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: (){
-                       Application.router.navigateTo(context,"networking",transition: TransitionType.inFromLeft );
-                    }
-                  )
-              ),
-              SizedBox(width: 30),
-              Expanded(
-                  child: IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: (){
-                       Application.router.navigateTo(context,"about-us",transition: TransitionType.inFromRight );
-                    }
-                  )
-              )
-            ],
-          )
-        ));
+            padding: const EdgeInsets.only(right: 12, left: 12),
+            color: Colors.grey[300],
+            height: 48,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                    child: IconButton(
+                        icon: Icon(Icons.calendar_month_rounded),
+                        onPressed: () {
+                          Application.router.navigateTo(context, "events",
+                              transition: TransitionType.inFromLeft);
+                        })),
+                SizedBox(width: 30),
+                Expanded(
+                    child: IconButton(
+                        icon: Icon(Icons.group),
+                        onPressed: () {
+                          Application.router.navigateTo(context, "networking",
+                              transition: TransitionType.inFromLeft);
+                        })),
+                SizedBox(width: 30),
+                Expanded(
+                    child: IconButton(
+                        icon: Icon(Icons.info),
+                        onPressed: () {
+                          Application.router.navigateTo(context, "about-us",
+                              transition: TransitionType.inFromRight);
+                        }))
+              ],
+            )));
   }
 }
