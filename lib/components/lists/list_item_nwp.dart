@@ -14,6 +14,7 @@ class ListItemNetworkingPerson extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Container _personImage = Container(
+      height: 56.0,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
@@ -24,6 +25,7 @@ class ListItemNetworkingPerson extends StatelessWidget {
     
     final Container _personDes = Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(itemData),
           Text('categories')
@@ -35,10 +37,15 @@ class ListItemNetworkingPerson extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return InkWell(
         onTap: () {
-          Application.router.navigateTo(context,"/networking-search/$itemId" );
+          Application.router.navigateTo(context,"/networking/person/$itemId" );
         },
         child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.only(
+              left: 24,
+              right: 48,
+              top: 8,
+              bottom: 8
+            ),
             margin: const EdgeInsets.all(8),
             width: constraints.maxWidth * 0.75,
             decoration: BoxDecoration(
@@ -47,8 +54,9 @@ class ListItemNetworkingPerson extends StatelessWidget {
             ),
             child: Row(
               children: [
-                _personImage,
-                _personDes
+                Expanded(child: _personImage, flex: 1),
+                Expanded(child: _personDes, flex:  3)
+
               ],
             )
             )

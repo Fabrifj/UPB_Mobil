@@ -7,10 +7,10 @@ import 'package:upb_mobil/pages/home/home_page.dart';
 import 'package:upb_mobil/pages/login/login_page.dart';
 import 'package:upb_mobil/pages/login/registration_page.dart';
 import 'package:upb_mobil/pages/networking/networking_categories_page.dart';
-import 'package:upb_mobil/pages/personal_info/personal_info_page.dart';
-import '../pages/networking/networking_person_page.dart';
+import 'package:upb_mobil/texts/appStrings.dart';
 import '../pages/networking/networking_search_page.dart';
 import 'package:upb_mobil/pages/management/management_content.dart';
+import '../pages/personal_info/personal_info_page.dart';
 
 class Routes {
   static void defineRoutes(FluroRouter router) {
@@ -28,7 +28,7 @@ class Routes {
 
   static final Handler _homeHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> s) =>
-          const HomePage(title: 'Home'));
+          const HomePage(title: AppStrings.homeTitle));
 
   static final Handler _loginPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
@@ -40,29 +40,30 @@ class Routes {
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          EventsPage(title: 'Events'));
+          EventsPage(title: AppStrings.eventsTitle));
 
   static final Handler _networkingCatPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          NetworkingCategoriesPage('Networking'));
+          NetworkingCategoriesPage(AppStrings.networkingTitle));
 
   static final Handler _networkingSerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
-          NetworkingSearchPage('Networking', params["id"][0]));
+          NetworkingSearchPage(AppStrings.networkingTitle, params["id"][0]));
 
   static final Handler _networkingPerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
-          NetworkingPersonPage('Networking', params["id"][0]));
+          PersonalInfoPage(AppStrings.networkingTitle, params["id"][0] ,false));
 
   static final Handler _personalInfoPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          PersonalInfoPage('Personal'));
+          PersonalInfoPage(AppStrings.profileTitle, "12345" ,true));
 
   static final Handler _aboutUsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          AboutUsPage('AboutUs'));
+          AboutUsPage(AppStrings.aboutUsTitle));
 
   static final Handler _contentManagementPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           ManagementContent(title: 'ContentManagement'));
 }
+
