@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/lists/list_view.dart';
+import '../../components/lists/list_view_nc.dart';
 import '../../components/upb_scafold.dart';
 
 class NetworkingCategoriesPage extends StatelessWidget {
@@ -24,7 +24,7 @@ class NetworkingCategoriesPage extends StatelessWidget {
         alignment: Alignment.center,
         child: FractionallySizedBox(
           widthFactor: 0.8,
-          child: ListViewUPB(titles)
+          child: ListViewUPB(titles, true)
         ),
       ));
   }

@@ -5,11 +5,11 @@ import '../../static_resources/theme_data.dart';
 
 
 
-class ListItemNetworking extends StatelessWidget {
+class ListItemNetworkingCat extends StatelessWidget {
   final itemData;
   final itemId;
 
-  ListItemNetworking(this.itemId,this.itemData );
+  ListItemNetworkingCat(this.itemId,this.itemData );
 
 
   @override
