@@ -14,8 +14,8 @@ import '../pages/personal_info/personal_info_page.dart';
 
 class Routes {
   static void defineRoutes(FluroRouter router) {
-    router.define("/", handler: _homeHandler);
-    router.define('/login', handler: _loginPage);
+    router.define('/home', handler: _homeHandler);
+    router.define('/', handler: _loginPage);
     router.define('/registration', handler: _registrationPage);
     router.define('/events', handler: _eventsPage);
     router.define('/networking-search/:id', handler: _networkingSerPage);
@@ -36,7 +36,7 @@ class Routes {
 
   static final Handler _registrationPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          RegistrationPage());
+          RegistrationPage(title: 'Registration'));
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>

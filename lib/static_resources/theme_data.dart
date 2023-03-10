@@ -23,7 +23,7 @@ class UpbTextStyle {
         size = 35.0;
         break;
       case 'h4':
-        size = 15.0;
+        size = 16.0;
         break;
       case 'b1':
         size = 30.0;
@@ -63,8 +63,4 @@ class UpbTextStyle {
     }
     return fontFamilySelected;
   }
-
-
-
-
 }
