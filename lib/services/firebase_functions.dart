@@ -7,11 +7,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
 import 'package:path/path.dart' as Path;
 
+final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
 class FirebaseFunctions {
   Future<void> getAllByCollection(String collectionName) async {
     //
+    final snapshots = _firestore.collection(collectionName).snapshots();
   }
 
-  Future<void> pushByCollection(
-      String collectionName, String dataToPush) async {}
+  Future<void> pushByCollection(String collectionName, String dataToPush) async {
+    
+  }
 }
