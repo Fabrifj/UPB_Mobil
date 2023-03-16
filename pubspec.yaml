@@ -42,6 +42,7 @@ dependencies:
   firebase_storage:
   image_picker:
   dotted_border:
+  bootstrap_icons:
 
 dev_dependencies:
   flutter_test:

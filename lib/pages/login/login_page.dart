@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:bootstrap_icons/bootstrap_icons.dart';
 
 import 'package:upb_mobil/routes/aplication.dart';
 import '../../components/upb_scafold.dart';
@@ -36,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final laMejorAppPara = Center(
         child: Container(
-            margin: EdgeInsets.only(left: 192, right: 192),
+            margin: EdgeInsets.only(left: 176, right: 176),
             child: Text(
               'La mejor app para contactarnos entre upbinos',
               style:
@@ -58,28 +59,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: Text('Iniciar sesión'),
     );
-    final continuarCon =
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      SizedBox(
-          width: size.width * 0.1,
-          child: Divider(
-            thickness: 1,
-            color: ColorResourcees.p_Blue,
-          )),
-      Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          child: Text(
-            'Continuar con',
-            style: UpbTextStyle.getTextStyle('', ColorResourcees.p_Blue, 'l'),
-          )),
-      SizedBox(
-          width: size.width * 0.1,
-          child: Divider(
-            thickness: 1,
-            color: ColorResourcees.p_Blue,
-          ))
-    ]);
-
     final crearCuenta = GestureDetector(
         onTap: () {
           Application.router.navigateTo(
@@ -95,6 +74,33 @@ class _LoginPageState extends State<LoginPage> {
               fontFamily: 'Montserrat-Bold',
               fontSize: 12,
             )));
+    final continuarCon = Column(children: <Widget>[
+      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        SizedBox(
+            width: size.width * 0.1,
+            child: const Divider(
+              thickness: 1,
+              color: ColorResourcees.p_Blue,
+            )),
+        Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              'Continuar con',
+              style: UpbTextStyle.getTextStyle('', ColorResourcees.p_Blue, 'l'),
+            )),
+        SizedBox(
+            width: size.width * 0.1,
+            child: const Divider(
+              thickness: 1,
+              color: ColorResourcees.p_Blue,
+            )),
+      ]),
+      const SizedBox(height: 16),
+      const Icon(
+        BootstrapIcons.google,
+        color: ColorResourcees.p_Blue,
+      ),
+    ]);
     final login1 = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -106,9 +112,9 @@ class _LoginPageState extends State<LoginPage> {
         ),
         const SizedBox(height: 32),
         iniciarSesion,
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         crearCuenta,
-        SizedBox(height: 96),
+        const SizedBox(height: 96),
         continuarCon
       ],
     );
@@ -145,13 +151,37 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ],
     );
+    final botonEntrar = ElevatedButton(
+      onPressed: () {
+        String user = _userController.text;
+        String password = _passwordController.text;
+        if (user.isNotEmpty && password.isNotEmpty) {
+          Application.router.navigateTo(
+            context,
+            "home",
+            transition: TransitionType.inFromRight,
+          );
+        }
+      },
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(ColorResourcees.s_Yellow),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        )),
+        textStyle: MaterialStateProperty.all(
+            UpbTextStyle.getTextStyle('h4', ColorResourcees.s_white, 'b')),
+        shadowColor: MaterialStateProperty.all(Colors.black),
+      ),
+      child: const Text('Entrar'),
+    );
     final login2 = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Column(
           children: <Widget>[
             Container(
-                margin: EdgeInsets.only(left: 40, right: 40, bottom: 80),
+                margin: const EdgeInsets.only(left: 40, right: 40, bottom: 80),
                 child: Column(children: <Widget>[
                   Text(
                     '¡Hola',
@@ -180,7 +210,7 @@ class _LoginPageState extends State<LoginPage> {
                         value: false,
                         onChanged: (value) {},
                       ),
-                      Text(
+                      const Text(
                         'Recordar mis datos',
                         style: TextStyle(
                           color: ColorResourcees.p_Blue,
@@ -191,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                       Spacer(),
                       GestureDetector(
                         onTap: () {},
-                        child: Text(
+                        child: const Text(
                           'Olvidé mi contraseña',
                           style: TextStyle(
                             color: ColorResourcees.p_Blue,
@@ -208,31 +238,19 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                String user = _userController.text;
-                String password = _passwordController.text;
-                if (user.isNotEmpty && password.isNotEmpty) {
-                  Application.router.navigateTo(
-                    context,
-                    "home",
-                    transition: TransitionType.inFromRight,
-                  );
-                }
-              },
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(ColorResourcees.s_Yellow),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+            botonEntrar,
+            SizedBox(height: 16),
+            const Text('¿No tienes una cuenta?',
+                style: TextStyle(
+                  color: ColorResourcees.s_Yellow,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Montserrat-Bold',
+                  fontSize: 12,
                 )),
-                textStyle: MaterialStateProperty.all(UpbTextStyle.getTextStyle(
-                    'h4', ColorResourcees.s_white, 'b')),
-                shadowColor: MaterialStateProperty.all(Colors.black),
-              ),
-              child: Text('Entrar'),
-            ),
+            SizedBox(height: 4),
+            crearCuenta,
+            SizedBox(height: 32),
+            continuarCon,
           ],
         ),
       ],
