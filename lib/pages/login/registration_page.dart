@@ -20,8 +20,8 @@ class RegistrationPage extends StatelessWidget {
             children: <Widget>[
               TextButton(
                 onPressed: () {
-                  Application.router.navigateTo(context, "content-management",
-                      transition: TransitionType.inFromRight);
+                  // Application.router.navigateTo(context, "content-management",
+                  //     transition: TransitionType.inFromRight);
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
