@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
+import 'package:upb_mobil/pages/home/home_page.dart';
 
 import 'package:upb_mobil/routes/aplication.dart';
 import '../../components/upb_scafold.dart';
@@ -16,8 +18,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool _showLoginForm = false;
 
-  final _userController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _isLoading = false;
 
   void _toggleLoginForm() {
     setState(() {
@@ -27,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    _userController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -123,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
     final usuarioYContrasena = Column(
       children: [
         TextField(
-          controller: _userController,
+          controller: _emailController,
           decoration: InputDecoration(
               filled: true,
               fillColor: Color.fromRGBO(51, 83, 230, 0.1),
@@ -133,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none,
               ),
-              hintText: 'Usuario'),
+              hintText: 'E-mail'),
         ),
         SizedBox(height: 16),
         TextField(
@@ -154,14 +158,15 @@ class _LoginPageState extends State<LoginPage> {
     );
     final botonEntrar = ElevatedButton(
       onPressed: () {
-        String user = _userController.text;
+        String user = _emailController.text;
         String password = _passwordController.text;
         if (user.isNotEmpty && password.isNotEmpty) {
-          Application.router.navigateTo(
-            context,
-            "home",
-            transition: TransitionType.inFromRight,
-          );
+          // Application.router.navigateTo(
+          //   context,
+          //   "home",
+          //   transition: TransitionType.inFromRight,
+          // );
+          _isLoading ? null : _submit;
         }
       },
       style: ButtonStyle(
@@ -174,7 +179,8 @@ class _LoginPageState extends State<LoginPage> {
             UpbTextStyle.getTextStyle('h4', ColorResourcees.s_white, 'b')),
         shadowColor: MaterialStateProperty.all(Colors.black),
       ),
-      child: const Text('Entrar'),
+      child:
+          _isLoading ? const CircularProgressIndicator() : const Text('Entrar'),
     );
     final login2 = Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -264,5 +270,86 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void _submit() async {
+    //if (_formKey.currentState?.validate() ?? false) {
+    setState(() {
+      _isLoading = true;
+    });
+    try {
+      print("email: " +
+          _emailController.text.trim() +
+          "; password: " +
+          _passwordController.text.trim());
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      if (userCredential.user != null) {
+        // Retrieve user data from Cloud Firestore
+        //FirebaseFirestore
+        DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userCredential.user?.uid)
+            .get();
+        Map<String, dynamic> userData =
+            userSnapshot.data() as Map<String, dynamic>;
+
+        // Navigate to home page with user data
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HomePage(
+                    userData: userData,
+                    title: "Home",
+                  )),
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text('No user found with that email.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      } else if (e.code == 'wrong-password') {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text('Wrong password provided for that user.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+    //}
   }
 }
