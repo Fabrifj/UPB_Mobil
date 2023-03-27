@@ -242,10 +242,6 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = true;
     });
     try {
-      print("email: " +
-          _emailController.text.trim() +
-          "; password: " +
-          _passwordController.text.trim());
       UserCredential userCredential =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
@@ -256,9 +252,6 @@ class _LoginPageState extends State<LoginPage> {
             .collection('users')
             .doc(userCredential.user?.uid)
             .get();
-
-        print("user data:\n" + userSnapshot.data().toString());
-
         Map<String, dynamic> userData =
             userSnapshot.data() as Map<String, dynamic>;
         Navigator.pushReplacement(

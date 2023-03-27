@@ -205,15 +205,6 @@ class _RegistrationPage extends State<RegistrationPage> {
       _isLoading = true;
     });
     try {
-      print("Registrando:\nemail: " +
-          _emailController.text.trim() +
-          "; password: " +
-          _passwordController.text.trim() +
-          "; fullName: " +
-          _nameController.text.trim() +
-          "; phone: " +
-          _phoneController.text.trim());
-
       UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
