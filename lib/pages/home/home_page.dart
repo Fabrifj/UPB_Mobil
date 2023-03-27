@@ -4,8 +4,9 @@ import '../../components/upb_scafold.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
+  final Map<String, dynamic>? userData;
 
-  const HomePage({super.key, required this.title});
+  const HomePage({super.key, required this.title, required this.userData});
 
   @override
   Widget build(BuildContext context) {

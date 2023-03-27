@@ -26,9 +26,20 @@ class Routes {
     router.define('/content-management', handler: _contentManagementPage);
   }
 
+  // static Map<String, dynamic>? emptyUser;
+
+  // static void initEmptyUser() {
+  //   emptyUser = null;
+  // }
+
   static final Handler _homeHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> s) =>
-          const HomePage(title: AppStrings.homeTitle));
+          HomePage(
+            title: AppStrings.homeTitle,
+            userData: Routes.emptyUser,
+          ));
+
+  static Map<String, dynamic>? emptyUser = null;
 
   static final Handler _loginPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
@@ -36,7 +47,7 @@ class Routes {
 
   static final Handler _registrationPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          RegistrationPage(title: 'Registration'));
+          RegistrationPage());
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
@@ -52,11 +63,11 @@ class Routes {
 
   static final Handler _networkingPerPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
-          PersonalInfoPage(AppStrings.networkingTitle, params["id"][0] ,false));
+          PersonalInfoPage(AppStrings.networkingTitle, params["id"][0], false));
 
   static final Handler _personalInfoPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          PersonalInfoPage(AppStrings.profileTitle, "12345" ,true));
+          PersonalInfoPage(AppStrings.profileTitle, "12345", true));
 
   static final Handler _aboutUsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
@@ -66,4 +77,3 @@ class Routes {
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           ManagementContent(title: 'ContentManagement'));
 }
-
