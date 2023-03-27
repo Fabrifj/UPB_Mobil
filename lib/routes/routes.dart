@@ -47,7 +47,7 @@ class Routes {
 
   static final Handler _registrationPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          RegistrationPage(title: 'Registration'));
+          RegistrationPage());
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
