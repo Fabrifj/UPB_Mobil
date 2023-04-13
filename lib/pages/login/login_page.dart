@@ -38,11 +38,11 @@ class _LoginPageState extends State<LoginPage> {
 
     final laMejorAppPara = Center(
         child: Container(
-            margin: EdgeInsets.only(left: 176, right: 176),
+            margin: EdgeInsets.only(left: 24, right: 24),
             child: Text(
               'La mejor app para contactarnos entre upbinos',
               style:
-                  UpbTextStyle.getTextStyle('h2', ColorResourcees.p_Blue, 'n'),
+                  UpbTextStyle.getTextStyle('h3', ColorResourcees.p_Blue, 'n'),
               textAlign: TextAlign.justify,
             )));
 

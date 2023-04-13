@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:upb_mobil/artefacts/auth_guard.dart';
 
 import 'package:upb_mobil/pages/about_us/about_us_page.dart';
 import 'package:upb_mobil/pages/events/events_page.dart';
@@ -24,11 +25,12 @@ class Routes {
     router.define('/persona-page', handler: _personalInfoPage);
     router.define('/about-us', handler: _aboutUsPage);
     router.define('/content-management', handler: _contentManagementPage);
+    router.define('/login', handler: _loginPage);
   }
 
   static final Handler _homeHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> s) =>
-          const HomePage(title: AppStrings.homeTitle));
+          AuthGuard(child: HomePage(title: AppStrings.homeTitle)));
 
   static final Handler _loginPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>

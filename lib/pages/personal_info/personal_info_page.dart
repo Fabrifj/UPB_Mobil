@@ -7,6 +7,7 @@ import '../../components/upb_scafold.dart';
 class PersonalInfoPage extends StatelessWidget {
   final String title;
   final idPerson;
+  static const avatarImage ='https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png';
   final bool canEdit;
   const PersonalInfoPage(this.title, this.idPerson,this.canEdit, {super.key});
 
@@ -22,8 +23,7 @@ class PersonalInfoPage extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 80.0,
-                  backgroundImage: NetworkImage(
-                      'https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png'),
+                  backgroundImage: NetworkImage(avatarImage),
                 ),
                 const SizedBox(height: 16.0),
                 const Text(
