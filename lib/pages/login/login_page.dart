@@ -1,8 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
+import 'package:provider/provider.dart';
 
 import 'package:upb_mobil/routes/aplication.dart';
+import 'package:upb_mobil/services/authentication_service.dart';
 import '../../components/upb_scafold.dart';
 import 'package:upb_mobil/static_resources/color_resources.dart';
 import 'package:upb_mobil/static_resources/theme_data.dart';
@@ -15,7 +17,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _showLoginForm = false;
-
   final _userController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -34,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+  final authService = Provider.of<AuthenticationService>(context, listen: false);
     Size size = MediaQuery.of(context).size;
 
     final laMejorAppPara = Center(
@@ -67,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
             "registration",
             transition: TransitionType.inFromRight,
           );
-        },
+        },// Refactorizar con colores y estilos adecuados
         child: Text('Crear tu cuenta',
             style: TextStyle(
               decoration: TextDecoration.underline,
@@ -157,11 +159,10 @@ class _LoginPageState extends State<LoginPage> {
         String user = _userController.text;
         String password = _passwordController.text;
         if (user.isNotEmpty && password.isNotEmpty) {
-          Application.router.navigateTo(
-            context,
-            "home",
-            transition: TransitionType.inFromRight,
-          );
+          if(authService.loginUser(user, password) != null){
+            Application.router.navigateTo(context, "home");
+          }
+
         }
       },
       style: ButtonStyle(

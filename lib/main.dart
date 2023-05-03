@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:upb_mobil/services/authentication_service.dart';
 import 'package:upb_mobil/static_resources/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -35,8 +36,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => UserProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+        ProxyProvider<UserProvider, AuthenticationService>(
+          update: (context, userProvider, _) => AuthenticationService(userProvider),
+        ),
+      ],
       child: MaterialApp(
         title: 'UPB Mobile',
         debugShowCheckedModeBanner: false,

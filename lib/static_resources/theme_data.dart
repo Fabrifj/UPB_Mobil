@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'color_resources.dart';
-
 class UpbTextStyle {
   static TextStyle getTextStyle(textSize, textColor, fontFamily) {
     return TextStyle(
@@ -13,26 +11,32 @@ class UpbTextStyle {
   static double _getTextType(textSize) {
     double size;
     switch (textSize) {
+      case 'mh1':
+        size = 140.0;
+        break;
       case 'h1':
-        size = 50.0;
+        size = 48.0;
         break;
       case 'h2':
-        size = 40.0;
+        size = 36.0;
         break;
       case 'h3':
-        size = 35.0;
-        break;
-      case 'h4':
-        size = 16.0;
+        size = 24.0;
         break;
       case 'b1':
-        size = 30.0;
+        size = 18.0;
         break;
       case 'b2':
-        size = 20.0;
+        size = 16.0;
         break;
       case 'b3':
-        size = 10.0;
+        size = 14.0;
+        break;
+      case 'd1':
+        size = 14.0;
+        break;
+      case 'd2':
+        size = 12.0;
         break;
       default:
         size = 15.0;
@@ -63,4 +67,5 @@ class UpbTextStyle {
     }
     return fontFamilySelected;
   }
+
 }

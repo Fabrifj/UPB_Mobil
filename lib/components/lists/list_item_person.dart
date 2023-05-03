@@ -4,11 +4,12 @@ import '../../static_resources/color_resources.dart';
 
 
 
-class ListItemNetworkingPerson extends StatelessWidget {
-  final itemData;
-  final itemId;
+class ListItemPerson extends StatelessWidget {
+  final String itemData;
+  final String itemId;
+  final String photo;
 
-  ListItemNetworkingPerson( this.itemId, this.itemData );
+  ListItemPerson( this.itemId, this.itemData, this.photo );
 
 
   @override
@@ -37,6 +38,7 @@ class ListItemNetworkingPerson extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return InkWell(
         onTap: () {
+          print(itemId);
           Application.router.navigateTo(context,"/networking/person/$itemId" );
         },
         child: Container(

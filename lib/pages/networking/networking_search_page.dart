@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/lists/list_view_nc.dart';
+import '../../components/lists/list_view.dart';
 import '../../components/upb_scafold.dart';
 
 class NetworkingSearchPage extends StatelessWidget {
+  final _firestore = FirebaseFirestore.instance;
+
   final String title;
   final String idCategorie;
   List<Map<String, dynamic>> _persons = [
