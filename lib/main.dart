@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       child: MaterialApp(
-        title: 'UPB Mobile',
+          title: 'UPB Mobile',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           pageTransitionsTheme: const PageTransitionsTheme(

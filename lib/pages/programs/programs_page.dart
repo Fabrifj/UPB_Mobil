@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import '../../components/upb_scafold.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class EventsPage extends StatelessWidget {
+class ProgramsPage extends StatelessWidget {
   final String title;
   final _firestore = FirebaseFirestore.instance;
 
-  EventsPage({super.key, required this.title}) {}
+  ProgramsPage({super.key, required this.title}) {}
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return UpbScaffold(
       title: title,
       body: Center(
@@ -40,18 +42,25 @@ class EventsPage extends StatelessWidget {
                     onTap: () {
                       print(element["id"]);
                     },
-                    child: ListTile(
-                      leading: FutureBuilder<String>(
-                        future: getImageUrl(element["image"]),
-                        builder: (BuildContext context, snapshot) {
-                          if (snapshot.connectionState == ConnectionState.done) {
-                            return Image.network(snapshot.data!);
-                          } else {
-                            return CircularProgressIndicator();
-                          }
-                        },
-                      ),
-                      title: Text(element["title"]),
+                    child: Column(
+                      children: [
+                        FutureBuilder<String>(
+                          future: getImageUrl(element["image"]),
+                            builder: (BuildContext context, snapshot) {
+                              if (snapshot.connectionState == ConnectionState.done) {
+                                return Image.network(
+                                  snapshot.data!,
+                                  width: size.width/3,
+                                  fit: BoxFit.cover,
+                                );
+                              } else {
+                                return CircularProgressIndicator();
+                              }
+                              },
+                          ),
+                        SizedBox(width: 16), // Add some space between the image and the text
+                        Text(element["title"]),
+                      ],
                     ),
                   );
                 },

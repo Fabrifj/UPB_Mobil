@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:upb_mobil/artefacts/auth_guard.dart';
 
 import 'package:upb_mobil/pages/about_us/about_us_page.dart';
-import 'package:upb_mobil/pages/events/events_page.dart';
 import 'package:upb_mobil/pages/home/home_page.dart';
 import 'package:upb_mobil/pages/login/login_page.dart';
 import 'package:upb_mobil/pages/login/registration_page.dart';
 import 'package:upb_mobil/pages/networking/networking_page.dart';
+import 'package:upb_mobil/pages/programs/programs_page.dart';
 import 'package:upb_mobil/texts/appStrings.dart';
 import 'package:upb_mobil/pages/management/management_content.dart';
 
@@ -16,7 +16,6 @@ import '../pages/personal_info/user_profile.dart';
 
 class Routes {
   static void defineRoutes(FluroRouter router) {
-    router.define('/home', handler: _homeHandler);
     router.define('/', handler: _loginPage);
     router.define('/registration', handler: _registrationPage);
     router.define('/events', handler: _eventsPage);
@@ -45,7 +44,7 @@ class Routes {
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          EventsPage(title: AppStrings.eventsTitle));
+          ProgramsPage(title: AppStrings.eventsTitle));
 
   static final Handler _networkingCatPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>

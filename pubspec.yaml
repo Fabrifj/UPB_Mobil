@@ -45,6 +45,7 @@ dependencies:
   image_picker:
   dotted_border:
   bootstrap_icons:
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:
@@ -68,5 +69,25 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 #
-#  assets:
-#    - assets/texts/appStrings.dart
+  assets:
+    - assets/routes/route_logos_list.json
+    - assets/images/convenciones_logos/Convenios/Uni-Valencia.png
+    - assets/images/convenciones_logos/Convenios/Uni-Santiago.png
+    - assets/images/convenciones_logos/Convenios/Uni-GulfCoast.png
+    - assets/images/convenciones_logos/Convenios/Uni-Incae.jpg
+    - assets/images/convenciones_logos/Convenios/Uni-EBS.jpg
+    - assets/images/convenciones_logos/Intercambios/Uni-SIAS.png
+    - assets/images/convenciones_logos/Intercambios/Uni-Esan.png
+    - assets/images/convenciones_logos/Intercambios/Uni-Missouri.png
+    - assets/images/convenciones_logos/Intercambios/Uni-Illinois.png
+    - assets/images/convenciones_logos/Intercambios/Uni-IESEG.png
+    - assets/images/convenciones_logos/Intercambios/Uni-IE.png
+    - assets/images/convenciones_logos/Membresias/Uni-ODAE.png
+    - assets/images/convenciones_logos/Membresias/Uni-IAUP.png
+    - assets/images/convenciones_logos/Membresias/Uni-CLADEA.png
+    - assets/images/convenciones_logos/Membresias/Uni-Balas.png
+    - assets/images/convenciones_logos/Membresias/Uni-Aib.png
+    - assets/images/asociacion_logos/AACSB-Member-logo.jpg
+    - assets/images/asociacion_logos/AMBA-member-logo.png
+    - assets/images/asociacion_logos/EFMD-member-logo.png
+    - assets/images/asociacion_logos/QS-member-logo.png

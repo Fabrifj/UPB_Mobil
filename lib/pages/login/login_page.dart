@@ -160,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
         String password = _passwordController.text;
         if (user.isNotEmpty && password.isNotEmpty) {
           if(authService.loginUser(user, password) != null){
-            Application.router.navigateTo(context, "home");
+            Application.router.navigateTo(context, "events");
           }
 
         }

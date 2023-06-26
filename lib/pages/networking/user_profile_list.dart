@@ -27,7 +27,7 @@ class _UserProfileListState extends State<UserProfileList> {
           Text("Lista de usuarios"),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-              stream: _firestore.collection('users').snapshots(),
+              stream: _firestore.collection('users').where('interest', arrayContains: widget.category).snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
                   return Center(child: Text('Error al cargar datos'));

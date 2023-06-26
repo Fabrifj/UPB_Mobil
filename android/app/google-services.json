@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "575891042528",
+    "project_id": "upbmobil",
+    "storage_bucket": "upbmobil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575891042528:android:6c765aaeacbe37c0dbe085",
+        "android_client_info": {
+          "package_name": "com.example.upb_mobil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575891042528-dem0ufj2g00ua048ijaoc1bo00q4vtfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHZEGW1XjTi-ZiVMQrfIKWrAJA2Www6do"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575891042528-dem0ufj2g00ua048ijaoc1bo00q4vtfi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

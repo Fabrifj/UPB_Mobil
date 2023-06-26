@@ -1,18 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../components/lists/list_view.dart';
 import '../../components/upb_scafold.dart';
 
 class NetworkingPage extends StatelessWidget {
   final String title;
-  List<Map<String, dynamic>> _titles = [
-    {'id': 1, 'data': 'Liderazgo'},
-    {'id': 2, 'data': 'Tencnicas'},
-    {'id': 3, 'data': 'Ventas'},
-    {'id': 4, 'data': 'Interpersonales'},
-    {'id': 5, 'data': 'Industrial'},
-    {'id': 5, 'data': 'Resolución de problemas'},
-  ];
+  String listPaths = "assets/routes/data_list.json";
 
   NetworkingPage(this.title){}
 
@@ -20,7 +16,19 @@ class NetworkingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    var categorias = ListViewUPB(_titles, true) ;
+    var categorias = FutureBuilder(
+        future: readJsonFile(listPaths),
+        builder: (context,snapshot){
+          if(snapshot.connectionState == ConnectionState.done)
+          {
+            Map<String, dynamic> routeLists = jsonDecode(snapshot.data!);
+            List<dynamic> _titlesCategories = routeLists['Categories'] as List<dynamic>;
+            return ListViewUPB(_titlesCategories, true) ;
+          }
+          else {
+            return Center(child: CircularProgressIndicator());
+          }}
+          );
 
     return UpbScaffold(
       title: title,
@@ -31,6 +39,9 @@ class NetworkingPage extends StatelessWidget {
           child: categorias
         ),
       ));
+  }
+  Future<String> readJsonFile(String listPaths) async {
+    return await rootBundle.loadString(listPaths);
   }
 }
 

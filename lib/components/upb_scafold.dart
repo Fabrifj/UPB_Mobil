@@ -119,7 +119,7 @@ class UpbScaffold extends StatelessWidget {
                     child: IconButton(
                         icon: Icon(Icons.info),
                         onPressed: () {
-                          Application.router.navigateTo(context, "home",
+                          Application.router.navigateTo(context, "about-us",
                               transition: TransitionType.inFromRight);
                         }))
               ],
