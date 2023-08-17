@@ -40,7 +40,7 @@ class Routes {
 
   static final Handler _registrationPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
-          RegistrationPage(title: 'Registration'));
+          RegistrationPage());
 
   static final Handler _eventsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
@@ -62,6 +62,7 @@ class Routes {
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
           UserProfile(userUid:  params["id"][0], canEdit: true, title: AppStrings.profileTitle));
 
+
   static final Handler _aboutUsPage = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           AboutUsPage(AppStrings.aboutUsTitle));
@@ -70,4 +71,3 @@ class Routes {
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) =>
           ManagementContent(title: 'ContentManagement'));
 }
-
