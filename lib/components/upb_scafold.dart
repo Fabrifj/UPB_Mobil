@@ -1,7 +1,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:upb_mobil/routes/aplication.dart';
+import 'package:upb_mobil/static_resources/user_provider.dart';
 
 class UpbScaffold extends StatelessWidget {
   final Widget body;
@@ -23,6 +25,8 @@ class UpbScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
+    final uid = userProvider.user?.uid;
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
@@ -30,7 +34,7 @@ class UpbScaffold extends StatelessWidget {
           backgroundColor: Colors.blue,
           leading: GestureDetector(
             onTap: () {
-              Application.router.navigateTo(context, "persona-page");
+              Application.router.navigateTo(context, "persona-page/0goeVlilBvSEK1vRggBtaCi5u0D3");
             },
             child: Container(
               margin: EdgeInsets.all(4),

@@ -2,10 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 
 import 'package:upb_mobil/pages/home/home_page.dart';
 import 'package:upb_mobil/routes/aplication.dart';
+import 'package:upb_mobil/services/authentication_service.dart';
 import '../../components/upb_scafold.dart';
 import 'package:upb_mobil/static_resources/color_resources.dart';
 import 'package:upb_mobil/static_resources/theme_data.dart';
@@ -17,8 +19,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _showLoginForm = false;
+  final _userController = TextEditingController();
 
-  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isLoading = false;
 
@@ -30,17 +32,19 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+  final authService = Provider.of<AuthenticationService>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     final laMejorAppPara = Center(
-      child: Container(
-        margin: EdgeInsets.only(left: 176, right: 176),
-        child: Text(
-          'La mejor app para contactarnos entre upbinos',
-          style: UpbTextStyle.getTextStyle('h2', ColorResourcees.p_Blue, 'n'),
-          textAlign: TextAlign.justify,
-        ),
-      ),
-    );
+        child: Container(
+            margin: EdgeInsets.only(left: 24, right: 24),
+            child: Text(
+              'La mejor app para contactarnos entre upbinos',
+              style:
+                  UpbTextStyle.getTextStyle('h3', ColorResourcees.p_Blue, 'n'),
+              textAlign: TextAlign.justify,
+            )));
+
+
     final iniciarSesion = ElevatedButton(
       onPressed: _toggleLoginForm,
       style: ButtonStyle(
@@ -62,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             "registration",
             transition: TransitionType.inFromRight,
           );
-        },
+        },// Refactorizar con colores y estilos adecuados
         child: Text('Crear tu cuenta',
             style: TextStyle(
               decoration: TextDecoration.underline,
@@ -148,7 +152,11 @@ class _LoginPageState extends State<LoginPage> {
         String user = _emailController.text;
         String password = _passwordController.text;
         if (user.isNotEmpty && password.isNotEmpty) {
-          _isLoading ? null : _submit();
+          if(authService.loginUser(user, password) != null){
+            Application.router.navigateTo(context, "events");
+          }
+
+
         }
       },
       style: ButtonStyle(

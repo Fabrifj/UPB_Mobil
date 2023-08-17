@@ -1,0 +1,33 @@
+{
+  "UPB": [
+    {"title": "SEUPB CBBA","logo":"img/convenciones_logos/UPB/seupb2023.jpg","link": "https://www.instagram.com/seupb.2023/"}
+  ],
+   "titleAgreements": [
+    {"title": "EBS Business school","logo":"assets/images/convenciones_logos/Convenios/Uni-EBS.jpg","link": "https://www.ebs.edu/en/"},
+    {"title": "Florida Gulf Coast","logo":"assets/images/convenciones_logos/Convenios/Uni-GulfCoast.png","link": "https://www.fgcu.edu/"},
+    {"title": "Instituto Centroamericano de Administración de Empresas","logo":"assets/images/convenciones_logos/Convenios/Uni-Incae.jpg","link": "https://si.cultura.cr/infraestructura/biblioteca-del-instituto-centroamericano-de-administracion-de-empresas-incae"},
+    {"title": "Universidad de Santiago de Chile","logo":"assets/images/convenciones_logos/Convenios/Uni-Santiago.png","link": "https://www.usach.cl/"},
+    {"title": "Universidad Politécnica de Valencia","logo":"assets/images/convenciones_logos/Convenios/Uni-Valencia.png","link": "http://www.upv.es/en"}
+  ],
+  "exchangeAgreements": [
+    {"title": "ESAN","logo":"assets/images/convenciones_logos/Intercambios/Uni-Esan.png","link": "https://www.topuniversities.com/universities/esan-graduate-school-business-esan-university"},
+    {"title": "IE BUSINESS SCHOOL","logo":"assets/images/convenciones_logos/Intercambios/Uni-IE.png","link": "https://www.ie.edu/business-school/"},
+    {"title": "IESEG","logo":"assets/images/convenciones_logos/Intercambios/Uni-IESEG.png","link": "https://www.ieseg.fr/en/"},
+    {"title": "Illinois Institute of Technology","logo":"assets/images/convenciones_logos/Intercambios/Uni-Illinois.png","link": "https://www.iit.edu/"},
+    {"title": "Missouri State University","logo":"assets/images/convenciones_logos/Intercambios/Uni-Missouri.png","link": "https://www.missouristate.edu/"},
+    {"title": "SIAS International University","logo":"assets/images/convenciones_logos/Intercambios/Uni-SIAS.png","link": "https://en.sias.edu.cn/"}
+  ],
+  "memberships": [
+    {"title": "Academy of International Business","logo":"assets/images/convenciones_logos/Membresias/Uni-Aib.png","link": "https://www.aib.world/"},
+    {"title": "BALAS","logo":"assets/images/convenciones_logos/Membresias/Uni-Balas.png","link": "https://balas.org/"},
+    {"title": "CLADEA","logo":"assets/images/convenciones_logos/Membresias/Uni-CLADEA.png","link": "https://cladea.org/en/home/"},
+    {"title": "INTERNATIONAL ASSOCIATION OF UNIVERSITY PRESIDENTS","logo":"assets/images/convenciones_logos/Membresias/Uni-IAUP.png","link": "https://www.iaup.org/"},
+    {"title": "ODAEE","logo":"assets/images/convenciones_logos/Membresias/Uni-ODAE.png","link": "https://www.odaee.com/"}
+  ],
+  "association": [
+    {"title": "The Association of MBAs (AMBA) Development Network ","logo":"assets/images/asociacion_logos/AMBA-member-logo.png","description": " es una comunidad de Escuelas de Negocios que trabajan para lograr la acreditación AMBA. ADN se esfuerza por apoyar a estas instituciones a través de revisiones de escritorio activas, tutoría e investigación."},
+    {"title": "Association to Advance Collegiate Schools of Business","logo":"assets/images/asociacion_logos/AACSB-Member-logo.jpg","description": " es una organización profesional estadounidense que brinda acreditación a las escuelas de negocios y más tarde se conoció como la Asociación Estadounidense de Escuelas Universitarias de Negocios y como la Asociación Internacional para la Educación Gerencial."},
+    {"title": "European Foundation for Management Development","logo":"assets/images/asociacion_logos/EFMD-member-logo.png","description": "es una asociación internacional sin ánimo de lucro con sede en Bruselas. La asociación de red más grande de Europa en el campo del desarrollo de la gestión, tiene más de 890 organizaciones miembros de la academia, los negocios, el servicio público y la consultoría en 88 países."},
+    {"title": "  College and university rankings  ","logo":"assets/images/asociacion_logos/QS-member-logo.png","description": "Los Rankings de Universidades Mundiales QS son una clasificación de las mejores universidades del mundo producida por Quacquarelli Symonds y publicada anualmente desde 2004. En 2022, clasificaron 1300 universidades."}
+  ]
+}

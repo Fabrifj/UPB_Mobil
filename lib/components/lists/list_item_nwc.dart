@@ -19,8 +19,6 @@ class ListItemNetworkingCat extends StatelessWidget {
       return InkWell(
         onTap: () {
           Application.router.navigateTo(context,"/networking-search/$itemId" );
-          // Navigator.pushNamed(context, "/networking-search/$itemId");
-          print("sd");
         },
         child: Container(
             padding: const EdgeInsets.all(20),

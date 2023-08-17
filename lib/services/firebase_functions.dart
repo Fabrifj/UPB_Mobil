@@ -1,21 +1,21 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-//import 'package:dotted_border/dotted_border.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-//import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:path/path.dart' as Path;
-
-final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-class FirebaseFunctions {
-  Future<void> getAllByCollection(String collectionName) async {
-    //
-    final snapshots = _firestore.collection(collectionName).snapshots();
-  }
-
-  Future<void> pushByCollection(String collectionName, String dataToPush) async {
-    
-  }
-}
+// import 'package:cloud_firestore/cloud_firestore.dart';
+//
+// final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+//
+// class FirebaseFunctions {
+//   Future<List<Map<String, dynamic>>> getAllByCollection(String collectionName) async {
+//     List<Map<String,dynamic>> NewsList = [];
+//     _firestore.collection(collectionName)
+//       (snapshot) {
+//       var data = snapshot.data?.docs;
+//       data?.forEach((element) {
+//         NewsList.add(element);
+//       });
+//     }
+//     return NewsList;
+//   }
+//
+//   Future<void> pushByCollection(String collectionName, String dataToPush) async {
+//
+//   }
+// }

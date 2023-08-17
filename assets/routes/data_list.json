@@ -1,0 +1,11 @@
+{
+  "Categories": [
+    {"id":"Liderazgo" , "data": "Liderazgo"},
+    {"id":"Tencnicas" , "data": "Tencnicas"},
+    {"id":"Ventas" , "data": "Ventas"},
+    {"id":"Interpersonales" , "data": "Interpersonales"},
+    {"id":"Industrial" , "data": "Industrial"},
+    {"id":"Resolución-de-problemas" , "data": "Resolución de problemas"}
+  ]
+
+}
